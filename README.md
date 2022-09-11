@@ -46,8 +46,8 @@ int main()
 ...prints
 ```
 checking: ten_equals_twenty: expected: 10 but was: 20
-checking: ten_equals_ten: ok
-checking: object_is_printed_correctly: ok
+checking: ten_equals_ten
+checking: object_is_printed_correctly
 checking: object_is_not_printed_correctly: expected: hello but was: 42
 checking: this_test_fails: not implemented yet
 >> Test fehlgeschlagen
