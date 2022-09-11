@@ -46,16 +46,9 @@ public:
         }
         else
         {
-            std::cout << GRN << name << ": ok" << WHT << std::endl;
+            std::cout << GRN << name << WHT << std::endl;
             this->pass_ = true;
         }
-    }
-
-    void fail(const char* name = __builtin_FUNCTION())
-    {
-        print_checking();
-        std::cout << RED << name << ": not implemented yet" << WHT << std::endl;
-        this->pass_ = false;
     }
 
     template<class T>
@@ -64,6 +57,13 @@ public:
         std::stringstream act;
         act << t;
         equals( exp, act.str(), name );
+    }
+
+    void fail(const char* name = __builtin_FUNCTION())
+    {
+        print_checking();
+        std::cout << RED << name << ": not implemented yet" << WHT << std::endl;
+        this->pass_ = false;
     }
 };
 
