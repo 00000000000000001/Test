@@ -46,7 +46,7 @@ public:
         }
         else
         {
-            std::cout << GRN << name << WHT << std::endl;
+            std::cout << GRN << name << ": ok" << WHT << std::endl;
             this->pass_ = true;
         }
     }

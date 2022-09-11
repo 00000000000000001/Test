@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Test.hh"
 
 Test test{};
