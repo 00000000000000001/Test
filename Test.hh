@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string>
 
 #define GRN "\e[0;32m"
 #define RED "\e[0;31m"
@@ -25,9 +26,19 @@ public:
             std::cout << WHT ">> " << RED "Test fehlgeschlagen" << WHT << std::endl;
         }
     }
-    void print_checking()
+
+    template<class T>
+    void print(bool pass, T const& exp, T const& act, std::string const& name)
     {
         std::cout << BLUE << "checking: ";
+        if (pass)
+        {
+            std::cout << GRN << name << WHT << std::endl;
+        }
+        else
+        {
+            std::cout << RED << name << ": " << "expected: " << exp << " but was: " << act << WHT << std::endl;
+        }
         
     }
 
@@ -36,23 +47,21 @@ public:
     * 'const char* name' standartisiert mit Built-in Function, die den Namen
     * aufrufenden Funktion enthält.
     */
-    void equals(T const& expected, T const& actual, const char* name = __builtin_FUNCTION())
+    void equals(T const& exp, T const& act, std::string const& name = __builtin_FUNCTION())
     {
-        print_checking();
-        if ( expected != actual )
+        if ( exp != act )
         {
-            std::cout << RED << name << ": " << "expected: " << expected << " but was: " << actual << WHT << std::endl;
+            print(false, exp, act, name);
             this->pass_ = false;
         }
         else
         {
-            std::cout << GRN << name << WHT << std::endl;
-            this->pass_ = true;
+            print(true, exp, act, name);
         }
     }
 
     template<class T>
-    void prints(std::string exp, T& t, const char* name = __builtin_FUNCTION()) 
+    void prints(std::string exp, T& t, std::string const& name = __builtin_FUNCTION()) 
     { 
         std::stringstream act;
         act << t;
@@ -61,7 +70,7 @@ public:
 
     void fail(const char* name = __builtin_FUNCTION())
     {
-        print_checking();
+        std::cout << BLUE << "checking: ";
         std::cout << RED << name << ": not implemented yet" << WHT << std::endl;
         this->pass_ = false;
     }
