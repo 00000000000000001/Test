@@ -13,7 +13,8 @@
 class Test
 {
 private:
-    bool pass_{false};
+    bool pass_{true};
+    std::string last_{};
 public:
     ~Test()
     {
