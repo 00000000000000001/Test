@@ -20,11 +20,11 @@ public:
     {
         if (this->pass_)
         {
-            std::cout << WHT ">> " << GRN "Test erfolgreich" << WHT << std::endl;
+            std::cout << WHT ">> " << GRN "Test passed" << WHT << std::endl;
         }
         else
         {
-            std::cout << WHT ">> " << RED "Test fehlgeschlagen" << WHT << std::endl;
+            std::cout << WHT ">> " << RED "Test failed" << WHT << std::endl;
         }
     }
 
