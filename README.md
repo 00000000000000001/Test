@@ -1,5 +1,5 @@
 # Test
-A class for unit tests
+A class for unit testing.
 ## Example
 ```cpp
 #include "Test.hh"
@@ -43,7 +43,7 @@ int main()
     return 0;
 }
 ```
-...prints
+prints
 ```
 checking: ten_equals_twenty: expected: 10 but was: 20
 checking: ten_equals_ten
