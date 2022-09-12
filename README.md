@@ -1,5 +1,5 @@
 # Test
-A class for unit testing.
+A class for unit testing in c++.
 ## Example
 ```cpp
 #include "Test.hh"
