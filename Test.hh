@@ -62,11 +62,12 @@ public:
     }
 
     template<class T>
-    void prints(std::string exp, T& t, std::string const& name = __builtin_FUNCTION()) 
+    std::string prints(std::string exp, T& t, std::string const& name = __builtin_FUNCTION()) 
     { 
-        std::stringstream act;
+        std::stringstream act{};
         act << t;
         equals( exp, act.str(), name );
+        return act.str();
     }
 
     void fail(const char* name = __builtin_FUNCTION())
