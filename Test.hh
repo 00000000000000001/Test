@@ -62,12 +62,21 @@ public:
     }
 
     template<class T>
-    std::string prints(std::string exp, T& t, std::string const& name = __builtin_FUNCTION()) 
+    void prints(std::string exp, T& t, std::string const& name = __builtin_FUNCTION()) 
     { 
-        std::stringstream act{};
+        std::stringstream act;
         act << t;
         equals( exp, act.str(), name );
-        return act.str();
+    }
+
+    template<class T>
+    void prints(T& t,  std::string const& name = __builtin_FUNCTION()) 
+    { 
+        std::stringstream ss;
+        ss << t;
+        bool exp{true};
+        bool act{ss.str().size() > 0};
+        equals( exp, act, name);
     }
 
     void fail(const char* name = __builtin_FUNCTION())
